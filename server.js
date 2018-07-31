@@ -8,6 +8,9 @@ Object.assign=require('object-assign')
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
+var Setup = require('./initialSetup');
+var initialSetup = Setup.initSetup;
+
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
@@ -94,7 +97,7 @@ app.get('/pagecount', function (req, res) {
 
 app.get('/setup', function (req, res) {
 
-  res.send('Hello world!!!');
+  res.send(initialSetup);
 
   // try to initialize the db on every request if it's not already
   // initialized.
