@@ -97,9 +97,9 @@ app.get('/pagecount', function (req, res) {
 
 app.put('/setup:newsetup', function (req, res) {
 
-  const newsetup = req.newsetup;
+  const newsetup = req.newsetup; 
 
-  initialSetup = newsetup;
+  initialSetup = req.body;
 
   res.send(initialSetup);
 
