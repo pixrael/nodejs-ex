@@ -95,7 +95,11 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-app.get('/setup', function (req, res) {
+app.put('/setup:newsetup', function (req, res) {
+
+  const newsetup = req.newsetup;
+
+  initialSetup = newsetup;
 
   res.send(initialSetup);
 
@@ -112,6 +116,8 @@ app.get('/setup', function (req, res) {
     res.send('{ pageCount: -1 }');
   } */
 });
+
+
 
 // error handling
 app.use(function(err, req, res, next){
