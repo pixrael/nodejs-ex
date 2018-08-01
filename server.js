@@ -103,7 +103,7 @@ app.put('/setup', function (req, res) {
 
   initialSetup = req.body;
 
-  res.send(initialSetup);
+  res.send('good');
 
   // try to initialize the db on every request if it's not already
   // initialized.
