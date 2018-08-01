@@ -103,8 +103,7 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get('/setup', function (req, res) {
-
-  res.send('Hi there');
+  res.send(initialSetup);
 })
 
 app.put('/setup', function (req, res) {
