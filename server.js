@@ -107,6 +107,7 @@ app.get('/setup', function (req, res) {
 app.put('/setup', function (req, res) {
 
   console.log('hi GET');
+  console.log('test');
 
   initialSetup = req.body;
 
