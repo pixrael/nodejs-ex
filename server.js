@@ -1,11 +1,12 @@
 //  OpenShift sample Node application
+const path = require('path');
 var express = require('express'),
   app = express(),
   morgan = require('morgan');
 
 const bodyParser = require('body-parser');
 
-
+app.use(express.static(__dirname + '/views/admin'));
 
 Object.assign = require('object-assign')
 
@@ -69,7 +70,7 @@ var initDb = function (callback) {
 app.get('/', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
-  if (!db) {
+  /* if (!db) {
     initDb(function (err) { });
   }
   if (db) {
@@ -84,7 +85,9 @@ app.get('/', function (req, res) {
     });
   } else {
     res.render('index.html', { pageCountMessage: null });
-  }
+  } */
+
+  res.sendFile(path.join(__dirname));
 });
 
 app.get('/pagecount', function (req, res) {
