@@ -101,7 +101,8 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.get('/setup', function (req, res) {
-  res.send(initialSetup);
+
+  res.send('Hi there');
 })
 
 app.put('/setup', function (req, res) {
