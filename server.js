@@ -101,8 +101,6 @@ app.get('/setup', function (req, res) {
 
 app.put('/setup', function (req, res) {
 
-  const newsetup = req.newsetup; 
-
   initialSetup = req.body;
 
   res.send(initialSetup);
