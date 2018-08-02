@@ -4,15 +4,13 @@ var express = require('express'),
   app = express(),
   morgan = require('morgan');
 
-const bodyParser = require('body-parser');
-
 app.use(express.static(__dirname + '/views/admin'));
 
 Object.assign = require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'));
-
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -111,11 +109,8 @@ app.get('/setup', function (req, res) {
 
 app.put('/setup', function (req, res) {
 
-  console.log('hi GET');
-  console.log('test');
-
-  initialSetup = req.body;
-
+  const newSetup = req.body;
+  initialSetup = newSetup;
   res.send(initialSetup);
 
   // try to initialize the db on every request if it's not already
